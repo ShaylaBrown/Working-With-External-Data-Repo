@@ -30,13 +30,18 @@ axios("https://api.thecatapi.com/v1/images/search")
  *  - Each option should display text equal to the name of the breed.
  * This function should execute immediately.
  */
-// async function initialLoad() {
-//   const myObject = await fetch(https://api.thecatapi.com/v1/breeds);
-//   const myText = await myObject.text();
-//   myDisplay(myText);
-// }
 
 
+async function initialLoad () {
+  fetch('https://api.thecatapi.com/v1/breeds')
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);   
+  })
+  .catch((err) => {
+    console.error(`There was an error: ${err}`);
+  });
+}
 /**
  * 2. Create an event handler for breedSelect that does the following:
  * - Retrieve information on the selected breed from the cat API using fetch().
@@ -124,19 +129,6 @@ axios("https://api.thecatapi.com/v1/images/search")
  * - Test other breeds as well. Not every breed has the same data available, so
  *   your code should account for this.
  */
-
-async function initialLoad () {
-  fetch('https://api.thecatapi.com/v1/breeds')
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);   
-  })
-  .catch((err) => {
-    console.error(`There was an error: ${err}`);
-  });
-}
-
-
 async function myFunction() {
     let apiData = await axios(
       `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${API_KEY}`
