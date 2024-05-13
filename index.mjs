@@ -36,7 +36,7 @@ async function initialLoad () {
   fetch('https://api.thecatapi.com/v1/breeds')
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);   
+    console.log(initialLoad);   
   })
   .catch((err) => {
     console.error(`There was an error: ${err}`);
@@ -155,3 +155,11 @@ async function myFunction() {
   
   
   
+// const fetchData = async () => {
+//   try {
+//     const data = await fetch(forumLatest);
+
+//   } catch (err) {
+
+//   }
+// };
