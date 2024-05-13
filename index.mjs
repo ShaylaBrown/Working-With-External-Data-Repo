@@ -30,6 +30,12 @@ axios("https://api.thecatapi.com/v1/images/search")
  *  - Each option should display text equal to the name of the breed.
  * This function should execute immediately.
  */
+// async function initialLoad() {
+//   const myObject = await fetch(https://api.thecatapi.com/v1/breeds);
+//   const myText = await myObject.text();
+//   myDisplay(myText);
+// }
+
 
 /**
  * 2. Create an event handler for breedSelect that does the following:
@@ -97,9 +103,9 @@ axios("https://api.thecatapi.com/v1/images/search")
  *   you delete that favourite using the API, giving this function "toggle" functionality.
  * - You can call this function by clicking on the heart at the top right of any image.
  */
-export async function favourite(imgId) {
-  // your code here
-}
+// export async function favourite(imgId) {
+//   // your code here
+// }
 
 /**
  * 9. Test your favourite() function by creating a getFavourites() function.
@@ -118,6 +124,19 @@ export async function favourite(imgId) {
  * - Test other breeds as well. Not every breed has the same data available, so
  *   your code should account for this.
  */
+
+async function initialLoad () {
+  fetch('https://api.thecatapi.com/v1/breeds')
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);   
+  })
+  .catch((err) => {
+    console.error(`There was an error: ${err}`);
+  });
+}
+
+
 async function myFunction() {
     let apiData = await axios(
       `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${API_KEY}`
